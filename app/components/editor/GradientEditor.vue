@@ -47,6 +47,7 @@ const enabledAngleSlider = computed(() =>
             <li
               v-for="(stop, index) in gradientSettings.stops"
               :key="stop.id"
+              :aria-label="`Gradient Stop ${index + 1}`"
             >
               <GradientStopItem
                 :model-value="stop"
@@ -92,11 +93,11 @@ const enabledAngleSlider = computed(() =>
       </div>
 
       <BaseSlider
-        v-if="enabledAngleSlider"
         v-model="gradientSettings.angle"
         label="Angle"
         v-bind="ANGLE_SLIDER_CONFIG"
         unit="°"
+        :disabled="!enabledAngleSlider"
       />
     </div>
   </section>

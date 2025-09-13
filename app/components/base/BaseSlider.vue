@@ -9,6 +9,7 @@ export interface BaseSliderProps {
   step?: number;
   size?: SliderProps['size'];
   unit?: string;
+  disabled?: boolean;
 }
 
 const model = defineModel<number>({ default: 0 });
@@ -86,6 +87,7 @@ watch(model, (newValue) => {
         :max="max"
         :step="step"
         :size="size"
+        :disabled="disabled"
       />
       <template v-if="$slots.help" #help>
         <slot name="help" />
@@ -98,6 +100,7 @@ watch(model, (newValue) => {
         variant="soft"
         size="xs"
         inputmode="numeric"
+        :disabled="disabled"
         :class="[unit ? 'w-16' : 'w-14']"
         :ui="{ base: 'ring-1 ring-default/40' }"
         @focus="handleInputFocus"
