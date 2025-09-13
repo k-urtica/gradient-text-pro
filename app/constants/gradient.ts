@@ -11,3 +11,9 @@ export const GRADIENT_TYPE_ITEMS = [
   { label: 'Radial', value: GRADIENT_TYPES.radial, icon: 'i-lucide-target' },
   { label: 'Conic', value: GRADIENT_TYPES.conic, icon: 'i-lucide-pie-chart' }
 ];
+
+export const ANGLE_SLIDER_CONFIG = {
+  min: 0,
+  max: 360,
+  step: 1
+} as const;
