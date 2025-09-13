@@ -1,0 +1,23 @@
+{
+  "name": "gradient-text-pro",
+  "main": "./.output/server/index.mjs",
+  "compatibility_date": "2025-07-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./.output/public/"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "preview_urls": false,
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "gradient-text-pro.web-toolbox.dev",
+      "custom_domain": true
+    }
+  ]
+}
