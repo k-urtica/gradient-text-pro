@@ -1,0 +1,44 @@
+## Gradient Text Pro Tool Guide
+
+### What is Gradient Text Pro?
+Gradient Text Pro is a free online tool that makes it easy for anyone to create and fine-tune beautiful CSS gradient text designs for web interfaces. Instantly preview and adjust gradient colors, directions, and typography settings for headlines, logos, buttons, and more—all in real time.
+
+With features like the "CSS Gradient Text Generator," advanced color stop customization, and precise typography control, you can achieve stunning text effects that other tools can't handle. Whether you're a beginner or a professional web designer/front-end engineer, Gradient Text Pro offers only the most practical features for real-world projects, including code generation, theme switching, and preset selection.
+
+This is a unique gradient text design tool that perfectly balances visual appeal and usability.
+
+### Key Features
+- ✨ **Real-Time Preview**: Instantly see your changes as you adjust gradient colors, angles, and typography settings.
+- � **Advanced Gradient Control**: Easily customize gradient direction, color stops, and positions to create complex text effects.
+- 📝 **CSS Code Generation**: Copy the generated CSS with a single click and use it immediately in your projects.
+- � **Preset Selection**: Choose from popular gradient text presets for quick results and efficient workflow.
+- 🔤 **Typography Customization**: Fine-tune font size, weight, letter spacing, and line height for perfect text rendering.
+- 🌗 **Dark/Light Theme Switching**: Change the UI to match your workspace or personal preference.
+
+### How to Use
+1. 📝 Enter your text in the main input field to see it rendered with gradient effects.
+2. 🎨 Select your favorite gradient preset from the preset panel, or create your own custom gradient.
+3. 🌈 Adjust gradient colors, direction, and color stop positions using the intuitive controls.
+4. 🔤 Fine-tune typography settings like font size, weight, letter spacing, and line height.
+5. 👀 Check the real-time preview and make adjustments as needed.
+6. 📋 Click the "Copy CSS Code" button to instantly get the generated code.
+7. 🌗 Switch between dark and light themes to suit your environment.
+
+#### Frequently Asked Questions (FAQ)
+❓ **Q. What kind of websites can I use this for?**
+A. You can use gradient text for any text element—headlines, logos, buttons, navigation, banners, and more. It's especially effective for creating eye-catching titles and branding elements.
+
+💻 **Q. What format is the generated code?**
+A. The output is standard CSS (background-image: linear-gradient) properties with text styling, ready to copy and paste. The code includes all necessary properties for cross-browser compatibility.
+
+📱 **Q. Can I use it on mobile devices?**
+A. Yes! It's fully responsive, so you can use it comfortably on PC, smartphone, or tablet.
+
+🆚 **Q. How is this different from other gradient text generators?**
+A. Gradient Text Pro offers advanced customization with multiple color stops, precise angle control, comprehensive typography settings, preset selection, real-time preview, and theme switching—features chosen for real-world usability. Its ease of use and design flexibility set it apart.
+
+---
+Gradient Text Pro is trusted by many users searching for "CSS gradient text," "gradient text generator," "web design tool," "text gradient CSS," and "typography design." Try it in your next project!
+
+Gradient Text Pro is developed and released as OSS (Open Source Software).
+See the GitHub repository for details: [GitHub - gradient-text-pro](https://github.com/k-urtica/gradient-text-pro)
