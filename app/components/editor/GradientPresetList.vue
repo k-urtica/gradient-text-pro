@@ -6,13 +6,13 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  presetSelect: [preset: GradientPreset];
+  selectPreset: [preset: GradientPreset];
 }>();
 
 const { getPresetPreviewStyle } = useGradientPresets();
 
 const handlePresetClick = (preset: GradientPreset) => {
-  emit('presetSelect', preset);
+  emit('selectPreset', preset);
 };
 </script>
 
@@ -39,7 +39,7 @@ const handlePresetClick = (preset: GradientPreset) => {
             variant="soft"
             size="sm"
             class="flex size-full flex-col gap-1.5 ring-1 ring-muted/70"
-            :aria-label="`Apply preset: ${preset.name}`"
+            :aria-label="`Apply preset: ${preset.label}`"
             @click="handlePresetClick(preset)"
           >
             <div
@@ -49,7 +49,7 @@ const handlePresetClick = (preset: GradientPreset) => {
               Aa
             </div>
             <span class="text-xs leading-tight font-medium text-toned">
-              {{ preset.name }}
+              {{ preset.label }}
             </span>
           </UButton>
         </li>

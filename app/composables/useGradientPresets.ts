@@ -3,7 +3,7 @@ import type { GradientPreset } from './useGradient';
 export const gradientPresets: GradientPreset[] = [
   {
     id: 'ocean',
-    name: 'Ocean',
+    label: 'Ocean',
     gradient: {
       type: 'linear',
       angle: 45,
@@ -15,7 +15,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'sunset',
-    name: 'Sunset',
+    label: 'Sunset',
     gradient: {
       type: 'linear',
       angle: 90,
@@ -28,7 +28,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'forest',
-    name: 'Forest',
+    label: 'Forest',
     gradient: {
       type: 'linear',
       angle: 135,
@@ -40,7 +40,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'purple-haze',
-    name: 'Purple Haze',
+    label: 'Purple Haze',
     gradient: {
       type: 'linear',
       angle: 45,
@@ -53,7 +53,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'golden',
-    name: 'Golden',
+    label: 'Golden',
     gradient: {
       type: 'radial',
       angle: 0,
@@ -65,7 +65,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'midnight',
-    name: 'Midnight',
+    label: 'Midnight',
     gradient: {
       type: 'linear',
       angle: 180,
@@ -77,7 +77,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'rainbow',
-    name: 'Rainbow',
+    label: 'Rainbow',
     gradient: {
       type: 'linear',
       angle: 90,
@@ -94,7 +94,7 @@ export const gradientPresets: GradientPreset[] = [
   },
   {
     id: 'fire',
-    name: 'Fire',
+    label: 'Fire',
     gradient: {
       type: 'conic',
       angle: 0,
@@ -119,7 +119,7 @@ export function useGradientPresets() {
 
     // Apply font settings if provided
     if (preset.font) {
-      Object.assign(fontSettings.value, preset.font);
+      fontSettings.value = { ...fontSettings.value, ...preset.font };
     }
   };
 

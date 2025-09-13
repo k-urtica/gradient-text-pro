@@ -30,7 +30,7 @@ const enabledAngleSlider = computed(() =>
     <div class="space-y-5">
       <GradientPresetList
         :presets="presets"
-        @preset-select="$emit('selectPreset', $event)"
+        @select-preset="$emit('selectPreset', $event)"
       />
 
       <BaseTabsSelector

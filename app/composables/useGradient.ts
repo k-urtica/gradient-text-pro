@@ -31,8 +31,8 @@ export interface FontSettings {
 export interface GradientPreset {
   /** Unique identifier for the gradient preset */
   id: string;
-  /** Name of the gradient preset */
-  name: string;
+  /** Label of the gradient preset */
+  label: string;
   /** Gradient settings */
   gradient: GradientSettings;
   /** Font settings */
