@@ -1,7 +1,7 @@
 <template>
   <ScriptGoogleAdsense
     data-ad-client="ca-pub-6155745382628091"
-    data-ad-slot="6739941154"
+    data-ad-slot="6401646728"
     :data-full-width-responsive="false"
     data-ad-format="autorelaxed"
     class="mx-auto w-full"
