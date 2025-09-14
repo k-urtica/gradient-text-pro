@@ -30,7 +30,7 @@ const snsList = [
 <template>
   <UPopover arrow :ui="{ content: 'rounded-xl' }">
     <UTooltip text="Share" arrow>
-      <Motion as-child :while-press="{ scale: 0.9 }">
+      <Motion as-child :while-press="{ scale: 0.93 }">
         <UButton
           icon="i-lucide-share-2"
           size="sm"

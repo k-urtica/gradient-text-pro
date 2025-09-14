@@ -6,17 +6,19 @@ const tipText = computed(() => isDocVisible.value ? 'Hide documentation' : 'Show
 
 <template>
   <UTooltip :text="tipText" arrow>
-    <UButton
-      variant="outline"
-      size="sm"
-      :color="isDocVisible ? 'primary' : 'neutral'"
-      :icon="isDocVisible ? 'i-lucide-book-open' : 'i-lucide-book'"
-      :aria-label="tipText"
-      square
-      class="rounded-full lg:px-2.5"
-      @click="toggleDoc"
-    >
-      <span class="hidden lg:block">Docs</span>
-    </UButton>
+    <Motion as-child :while-press="{ scale: 0.93 }">
+      <UButton
+        variant="outline"
+        size="sm"
+        :color="isDocVisible ? 'primary' : 'neutral'"
+        :icon="isDocVisible ? 'i-lucide-book-open' : 'i-lucide-book'"
+        :aria-label="tipText"
+        square
+        class="rounded-full lg:px-2.5"
+        @click="toggleDoc"
+      >
+        <span class="hidden lg:block">Docs</span>
+      </UButton>
+    </Motion>
   </UTooltip>
 </template>
