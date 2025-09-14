@@ -15,8 +15,6 @@ defineEmits<{
 
 const enabledAngleSlider = computed(() =>
   gradientSettings.value.type === 'linear' || gradientSettings.value.type === 'conic');
-
-const reachedMaxStops = computed(() => gradientSettings.value.stops.length >= MAX_GRADIENT_STOPS);
 </script>
 
 <template>
@@ -43,42 +41,11 @@ const reachedMaxStops = computed(() => gradientSettings.value.stops.length >= MA
       />
 
       <div class="space-y-2">
-        <fieldset class="max-h-60 overflow-y-scroll">
-          <legend class="mb-1 text-sm font-medium">Gradient Stops</legend>
-          <ul class="space-y-2">
-            <li
-              v-for="(stop, index) in gradientSettings.stops"
-              :key="stop.id"
-              :aria-label="`Gradient Stop ${index + 1}`"
-            >
-              <GradientStopItem
-                :model-value="stop"
-                :display-index="index + 1"
-                :removeable="gradientSettings.stops.length > 2"
-                @update:model-value="(value) => gradientSettings.stops[index] = value"
-                @remove="$emit('removeStop', $event)"
-              />
-            </li>
-          </ul>
-        </fieldset>
-
-        <UTooltip
-          arrow
-          :disabled="!reachedMaxStops"
-          text="Maximum stops reached"
-        >
-          <UButton
-            icon="i-lucide-plus"
-            block
-            variant="outline"
-            size="sm"
-            :disabled="reachedMaxStops"
-            @click="$emit('addStop')"
-          >
-            Add Stop
-          </UButton>
-        </UTooltip>
-
+        <GradientStopList
+          v-model:stops="gradientSettings.stops"
+          @remove-stop="$emit('removeStop', $event)"
+          @add-stop="$emit('addStop')"
+        />
         <div class="grid grid-cols-2 gap-2">
           <UButton
             icon="i-lucide-shuffle"
