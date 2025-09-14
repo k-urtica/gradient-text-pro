@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { GradientPreset } from '~/composables/useGradient';
-
 const {
   text,
   gradientSettings,
   fontSettings,
+  fontToggles,
   addGradientStop,
   removeGradientStop,
   randomizeGradient,
@@ -12,10 +11,6 @@ const {
 } = useGradient();
 
 const { presets, applyPreset } = useGradientPresets();
-
-const handlePresetSelect = (preset: GradientPreset) => {
-  applyPreset(preset);
-};
 </script>
 
 <template>
@@ -27,7 +22,7 @@ const handlePresetSelect = (preset: GradientPreset) => {
     <GradientEditor
       v-model="gradientSettings"
       :presets="presets"
-      @select-preset="handlePresetSelect"
+      @select-preset="applyPreset"
       @add-stop="addGradientStop"
       @remove-stop="removeGradientStop"
       @randomize="randomizeGradient"
@@ -36,6 +31,9 @@ const handlePresetSelect = (preset: GradientPreset) => {
 
     <USeparator />
 
-    <FontEditor v-model="fontSettings" />
+    <FontEditor
+      v-model:font-settings="fontSettings"
+      v-model:font-toggles="fontToggles"
+    />
   </div>
 </template>

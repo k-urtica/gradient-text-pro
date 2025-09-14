@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const fontSettings = defineModel<FontSettings>({ required: true });
+const fontSettings = defineModel<FontSettings>('fontSettings', { required: true });
+
+const fontToggles = defineModel<FontToggles>('fontToggles', { required: true });
 </script>
 
 <template>
@@ -40,18 +42,48 @@ const fontSettings = defineModel<FontSettings>({ required: true });
         </UFormField>
       </div>
 
-      <BaseSlider
-        v-model="fontSettings.letterSpacing"
-        label="Letter Spacing"
-        v-bind="LETTER_SPACING_SLIDER_CONFIG"
-        unit="em"
-      />
+      <div class="flex gap-3">
+        <UTooltip text="Toggle letter spacing" arrow>
+          <span class="self-end">
+            <USwitch
+              v-model="fontToggles.letterSpacing"
+              size="xs"
+              checked-icon="i-lucide-check"
+              unchecked-icon="i-lucide-minus"
+              aria-label="Toggle letter spacing"
+            />
+          </span>
+        </UTooltip>
+        <BaseSlider
+          v-model="fontSettings.letterSpacing"
+          label="Letter Spacing"
+          v-bind="LETTER_SPACING_SLIDER_CONFIG"
+          :disabled="!fontToggles.letterSpacing"
+          unit="em"
+          class="flex-1"
+        />
+      </div>
 
-      <BaseSlider
-        v-model="fontSettings.lineHeight"
-        label="Line Height"
-        v-bind="LINE_HEIGHT_SLIDER_CONFIG"
-      />
+      <div class="flex gap-3">
+        <UTooltip text="Toggle line height" arrow>
+          <span class="self-end">
+            <USwitch
+              v-model="fontToggles.lineHeight"
+              size="xs"
+              checked-icon="i-lucide-check"
+              unchecked-icon="i-lucide-minus"
+              aria-label="Toggle line height"
+            />
+          </span>
+        </UTooltip>
+        <BaseSlider
+          v-model="fontSettings.lineHeight"
+          label="Line Height"
+          v-bind="LINE_HEIGHT_SLIDER_CONFIG"
+          :disabled="!fontToggles.lineHeight"
+          class="flex-1"
+        />
+      </div>
     </div>
   </section>
 </template>

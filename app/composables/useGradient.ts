@@ -28,6 +28,13 @@ export interface FontSettings {
   lineHeight: number;
 }
 
+export interface FontToggles {
+  /** Toggle for letter spacing */
+  letterSpacing: boolean;
+  /** Toggle for line height */
+  lineHeight: boolean;
+}
+
 export interface GradientPreset {
   /** Unique identifier for the gradient preset */
   id: string;
@@ -59,6 +66,11 @@ export function useGradient() {
     lineHeight: 1.2
   }));
 
+  const fontToggles = useState<FontToggles>('font-toggles', () => ({
+    letterSpacing: false,
+    lineHeight: false
+  }));
+
   const generateGradientCSS = (settings: GradientSettings): string => {
     const sortedStops = [...settings.stops].sort((a, b) => a.position - b.position);
     const stopsString = sortedStops
@@ -80,11 +92,11 @@ export function useGradient() {
   const gradientCSS = computed(() => generateGradientCSS(gradientSettings.value));
 
   const textStyle = computed(() => ({
+    fontFamily: fontSettings.value.family,
     fontSize: `${fontSettings.value.size}px`,
     fontWeight: fontSettings.value.weight,
-    fontFamily: fontSettings.value.family,
-    letterSpacing: `${fontSettings.value.letterSpacing}em`,
-    lineHeight: fontSettings.value.lineHeight,
+    ...(fontToggles.value.letterSpacing && { letterSpacing: `${fontSettings.value.letterSpacing}em` }),
+    ...(fontToggles.value.lineHeight && { lineHeight: fontSettings.value.lineHeight }),
     background: gradientCSS.value,
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
@@ -93,18 +105,20 @@ export function useGradient() {
   }));
 
   const cssOutput = computed(() => {
-    return `.gradient-text {
-  font-size: ${fontSettings.value.size}px;
-  font-weight: ${fontSettings.value.weight};
-  font-family: ${fontSettings.value.family};
-  letter-spacing: ${fontSettings.value.letterSpacing}em;
-  line-height: ${fontSettings.value.lineHeight};
-  background: ${gradientCSS.value};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}`;
+    const properties = [
+      `font-family: ${fontSettings.value.family}`,
+      `font-size: ${fontSettings.value.size}px`,
+      `font-weight: ${fontSettings.value.weight}`,
+      ...(fontToggles.value.letterSpacing ? [`letter-spacing: ${fontSettings.value.letterSpacing}em`] : []),
+      ...(fontToggles.value.lineHeight ? [`line-height: ${fontSettings.value.lineHeight}`] : []),
+      `background: ${gradientCSS.value}`,
+      `background-clip: text`,
+      `-webkit-background-clip: text`,
+      `-webkit-text-fill-color: transparent`,
+      `color: transparent`
+    ];
+
+    return `.gradient-text {\n${properties.map((prop) => `  ${prop};`).join('\n')}\n}`;
   });
 
   const addGradientStop = () => {
@@ -167,6 +181,7 @@ export function useGradient() {
     text,
     gradientSettings,
     fontSettings,
+    fontToggles,
     gradientCSS,
     textStyle,
     cssOutput,
