@@ -18,6 +18,8 @@ export const ANGLE_SLIDER_CONFIG = {
   step: 1
 } as const;
 
+export const MAX_GRADIENT_STOPS = 8;
+
 export const GRADIENT_PRESETS: GradientPreset[] = [
   {
     id: 'ocean-depth',

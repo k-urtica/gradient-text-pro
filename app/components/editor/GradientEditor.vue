@@ -15,6 +15,8 @@ defineEmits<{
 
 const enabledAngleSlider = computed(() =>
   gradientSettings.value.type === 'linear' || gradientSettings.value.type === 'conic');
+
+const reachedMaxStops = computed(() => gradientSettings.value.stops.length >= MAX_GRADIENT_STOPS);
 </script>
 
 <template>
@@ -60,15 +62,22 @@ const enabledAngleSlider = computed(() =>
           </ul>
         </fieldset>
 
-        <UButton
-          icon="i-lucide-plus"
-          block
-          variant="outline"
-          size="sm"
-          @click="$emit('addStop')"
+        <UTooltip
+          arrow
+          :disabled="!reachedMaxStops"
+          text="Maximum stops reached"
         >
-          Add Stop
-        </UButton>
+          <UButton
+            icon="i-lucide-plus"
+            block
+            variant="outline"
+            size="sm"
+            :disabled="reachedMaxStops"
+            @click="$emit('addStop')"
+          >
+            Add Stop
+          </UButton>
+        </UTooltip>
 
         <div class="grid grid-cols-2 gap-2">
           <UButton

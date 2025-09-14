@@ -108,6 +108,8 @@ export function useGradient() {
   });
 
   const addGradientStop = () => {
+    if (gradientSettings.value.stops.length >= MAX_GRADIENT_STOPS) return;
+
     const newPosition = gradientSettings.value.stops.length > 0
       ? Math.min(100, Math.max(...gradientSettings.value.stops.map((s) => s.position)) + 20)
       : 50;
