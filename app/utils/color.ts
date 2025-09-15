@@ -30,3 +30,36 @@ export const getGradientStopPosition = (params: { index: number; total: number }
   if (total <= 1) return 0;
   return Math.round((index / (total - 1)) * 100);
 };
+
+/**
+ * Filter a string to contain only valid hex characters (0-9, a-f, A-F, #).
+ * @param value String to filter
+ * @return Filtered string containing only valid hex characters
+ */
+export const filterHexInput = (value: string): string => {
+  return value.replace(/[^0-9a-f#]/gi, '');
+};
+
+/**
+ * Normalize a hex color string to standard format (#rrggbb).
+ * - Adds # prefix if missing
+ * - Converts to lowercase
+ * - Expands 3-digit hex to 6-digit (#abc -> #aabbcc)
+ * - Truncates if longer than 6 hex digits
+ * - Returns #000000 for empty/invalid input
+ * @param value Hex color string to normalize
+ * @return Normalized hex color string
+ */
+export const normalizeHex = (value: string): string => {
+  const filtered = filterHexInput(value);
+  const withoutHash = filtered.replace(/^#+/, '');
+
+  if (!withoutHash) return '#000000';
+
+  // #rgb → #rrggbb
+  if (withoutHash.length === 3) {
+    return `#${withoutHash.split('').map((c) => c + c).join('').toLowerCase()}`;
+  }
+  // Truncate to 6 digits if longer than 6
+  return `#${withoutHash.slice(0, 6).toLowerCase()}`;
+};

@@ -14,12 +14,9 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="flex items-center gap-3 rounded-lg border p-3 py-4">
-    <input
-      v-model="stop.color"
-      type="color"
-      class="size-7 cursor-pointer rounded-md ring ring-default"
-    >
+  <div class="flex items-center gap-3 rounded-lg border py-4 pr-2 pl-3">
+    <ColorSwatch v-model="stop.color" />
+
     <div class="flex-1">
       <BaseSlider
         v-model="stop.position"
