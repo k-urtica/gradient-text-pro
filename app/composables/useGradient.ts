@@ -49,6 +49,8 @@ export interface GradientPreset {
 export function useGradient() {
   const text = useState<string>('gradient-text', () => 'Gradient Text Pro');
 
+  const colorFormat = useState<ColorFormat>('color-format', () => COLOR_FORMATS.hex);
+
   const gradientSettings = useState<GradientSettings>('gradient-settings', () => ({
     type: GRADIENT_TYPES.linear,
     angle: 135,
@@ -71,10 +73,15 @@ export function useGradient() {
     lineHeight: false
   }));
 
-  const generateGradientCSS = (settings: GradientSettings): string => {
+  const generateGradientCSS = (settings: GradientSettings, format: ColorFormat): string => {
     const sortedStops = [...settings.stops].sort((a, b) => a.position - b.position);
     const stopsString = sortedStops
-      .map((stop) => `${stop.color} ${stop.position}%`)
+      .map((stop) => {
+        const color = format === COLOR_FORMATS.oklch
+          ? hexToOklch(stop.color)
+          : stop.color;
+        return `${color} ${stop.position}%`;
+      })
       .join(', ');
 
     switch (settings.type) {
@@ -89,7 +96,7 @@ export function useGradient() {
     }
   };
 
-  const gradientCSS = computed(() => generateGradientCSS(gradientSettings.value));
+  const gradientCSS = computed(() => generateGradientCSS(gradientSettings.value, colorFormat.value));
 
   const textStyle = computed(() => ({
     fontFamily: fontSettings.value.family,
@@ -180,6 +187,7 @@ export function useGradient() {
 
   return {
     text,
+    colorFormat,
     gradientSettings,
     fontSettings,
     fontToggles,

@@ -22,13 +22,14 @@
 ## 📝 Overview
 
 Gradient Text Pro is a powerful web tool for creating stunning CSS gradient text effects with real-time preview.
-Easily customize linear, radial, and conic gradients with multiple color stops, typography settings, and instant CSS code generation.
-Perfect for creating eye-catching headlines, logos, and web interfaces with professional gradient text designs.
+Easily customize linear, radial, and conic gradients with multiple color stops, modern OKLCH color space support, typography settings, and instant CSS code generation.
+Perfect for creating eye-catching headlines, logos, and web interfaces with professional gradient text designs that leverage cutting-edge color technology.
 
 ## ✨ Features
 
 - 🌈 Create linear, radial, and conic gradient text effects
 - 🎨 Advanced color stop control with custom positioning
+- 🖌️ Modern OKLCH color space support for smoother, more natural gradients
 - 🔤 Typography settings: font size, weight, letter spacing, and line height
 - 👀 Real-time preview of gradient text designs
 - 📋 One-click CSS code generation and copy
@@ -42,9 +43,10 @@ Perfect for creating eye-catching headlines, logos, and web interfaces with prof
 1. Enter your text in the main input field to see gradient effects applied
 2. Choose from gradient presets or create custom gradients using color stops
 3. Select gradient type (linear, radial, or conic) and adjust the angle
-4. Fine-tune typography settings like font size, weight, and spacing
-5. Copy the generated CSS code with one click
-6. Use the code directly in your web projects
+4. Choose between HEX (classic) or OKLCH (modern) color format for optimal results
+5. Fine-tune typography settings like font size, weight, and spacing
+6. Copy the generated CSS code with one click
+7. Use the code directly in your web projects
 
 ## 💻 Technology Stack
 

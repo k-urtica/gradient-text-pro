@@ -1,5 +1,5 @@
 const SITE_NAME = 'Gradient Text Pro';
-const DESCRIPTION = 'Free CSS Gradient Text Generator - Create stunning gradient text effects with real-time preview. Advanced color controls, typography settings, and instant CSS code generation for web design.';
+const DESCRIPTION = 'Free CSS Gradient Text Generator with OKLCH support - Create stunning gradient text effects with real-time preview and modern color technology.';
 const SITE_URL = 'https://gradient-text-pro.web-toolbox.dev';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config

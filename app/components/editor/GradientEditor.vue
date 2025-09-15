@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const gradientSettings = defineModel<GradientSettings>({ required: true });
+const colorFormat = defineModel<ColorFormat>('colorFormat', { default: COLOR_FORMATS.hex });
 
 defineProps<{
   presets: GradientPreset[];
@@ -75,6 +76,18 @@ const enabledAngleSlider = computed(() =>
         unit="°"
         :disabled="!enabledAngleSlider"
       />
+
+      <div>
+        <BaseRadioGroup
+          v-model="colorFormat"
+          label="Color Format"
+          label-icon="i-lucide-swatch-book"
+          :items="COLOR_FORMAT_ITEMS"
+        />
+        <p class="mt-1.5 text-xs text-muted">
+          HEX is classic and widely supported. OKLCH gives smoother, more natural gradients.
+        </p>
+      </div>
     </div>
   </section>
 </template>
