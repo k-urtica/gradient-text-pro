@@ -18,7 +18,7 @@ const previewTextStyle = computed(() => showFullGradient.value
     <section aria-label="Gradient text preview panel" class="flex size-full min-h-0 flex-1 flex-col rounded-lg bg-elevated">
       <div class="flex size-full flex-col items-center justify-start overflow-y-auto p-3">
         <span :style="previewTextStyle" class="my-auto text-center whitespace-pre-wrap">
-          {{ text || 'Sample Text' }}
+          {{ text || 'Gradient Text Pro' }}
         </span>
       </div>
 

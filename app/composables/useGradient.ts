@@ -47,19 +47,19 @@ export interface GradientPreset {
 }
 
 export function useGradient() {
-  const text = useState<string>('gradient-text', () => 'Sample Text');
+  const text = useState<string>('gradient-text', () => 'Gradient Text Pro');
 
   const gradientSettings = useState<GradientSettings>('gradient-settings', () => ({
     type: GRADIENT_TYPES.linear,
-    angle: 45,
+    angle: 135,
     stops: [
-      { id: 'stop1', color: '#3b82f6', position: 0 },
-      { id: 'stop2', color: '#8b5cf6', position: 100 }
+      { id: 'stop1', color: '#f59e42', position: 0 },
+      { id: 'stop2', color: '#6366f1', position: 100 }
     ]
   }));
 
   const fontSettings = useState<FontSettings>('font-settings', () => ({
-    size: 48,
+    size: 64,
     weight: FONT_WEIGHTS.bold,
     family: 'Inter, system-ui, sans-serif',
     letterSpacing: -0.02,
