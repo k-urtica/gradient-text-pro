@@ -128,13 +128,14 @@ export function useGradient() {
       ? Math.min(100, Math.max(...gradientSettings.value.stops.map((s) => s.position)) + 20)
       : 50;
 
-    const newStop: GradientStop = {
-      id: `stop${Date.now()}`,
-      color: '#ff6b6b',
-      position: newPosition
-    };
-
-    gradientSettings.value.stops.push(newStop);
+    const nextStopNumber = gradientSettings.value.stops.length + 1;
+    gradientSettings.value.stops.push(
+      {
+        id: `stop${nextStopNumber}`,
+        color: getRandomHex(),
+        position: newPosition
+      }
+    );
   };
 
   const removeGradientStop = (id: string) => {
@@ -147,21 +148,21 @@ export function useGradient() {
   };
 
   const randomizeGradient = () => {
-    const colors = ['#3b82f6', '#8b5cf6', '#ef4444', '#f59e0b', '#10b981', '#ec4899', '#6366f1'];
-    const randomColors = colors.sort(() => 0.5 - Math.random()).slice(0, 2 + Math.floor(Math.random() * 2));
+    const numColors = 2 + Math.floor(Math.random() * 4);
+    const randomColors = getRandomColors(numColors);
 
     gradientSettings.value.angle = Math.floor(Math.random() * 360);
     gradientSettings.value.stops = randomColors.map((color, index) => ({
-      id: `stop${Date.now()}_${index}`,
+      id: `stop${index + 1}`,
       color,
-      position: (index / (randomColors.length - 1)) * 100
+      position: getGradientStopPosition({ index, total: randomColors.length })
     }));
   };
 
   const distributeStopsEvenly = () => {
-    const count = gradientSettings.value.stops.length;
-    if (count <= 1) {
-      if (count === 1 && gradientSettings.value.stops[0]) {
+    const total = gradientSettings.value.stops.length;
+    if (total <= 1) {
+      if (total === 1 && gradientSettings.value.stops[0]) {
         const firstStop = gradientSettings.value.stops[0];
         gradientSettings.value.stops = [
           { id: firstStop.id, color: firstStop.color, position: 50 }
@@ -173,7 +174,7 @@ export function useGradient() {
     gradientSettings.value.stops = gradientSettings.value.stops.map((stop, index) => ({
       id: stop.id,
       color: stop.color,
-      position: Math.round((index / (count - 1)) * 100)
+      position: getGradientStopPosition({ index, total })
     }));
   };
 
