@@ -27,7 +27,7 @@
 
         <SocialShareButton />
 
-        <!-- <GithubButton /> -->
+        <GithubButton />
       </nav>
     </PanelContainer>
   </header>
