@@ -156,7 +156,7 @@ export function useGradient() {
 
   const randomizeGradient = () => {
     const numColors = 2 + Math.floor(Math.random() * 4);
-    const randomColors = getRandomColors(numColors);
+    const randomColors = getRandomHexColors(numColors);
 
     gradientSettings.value.angle = Math.floor(Math.random() * 360);
     gradientSettings.value.stops = randomColors.map((color, index) => ({

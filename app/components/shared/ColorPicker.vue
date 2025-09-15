@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { filterHexInput, normalizeHex } from '~/utils/color';
-
 const color = defineModel<string>();
 
 const inputValue = ref(color.value || '#000000');
@@ -22,7 +20,7 @@ const handleInput = (e: Event) => {
     const filtered = filterHexInput(e.target.value);
     const withHash = filtered.startsWith('#') ? filtered : `#${filtered}`;
     inputValue.value = withHash;
-    e.target.value = withHash; // DOM同期
+    e.target.value = withHash;
   }
 };
 
