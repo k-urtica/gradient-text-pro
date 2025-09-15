@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {
   text,
+  colorFormat,
   gradientSettings,
   fontSettings,
   fontToggles,
@@ -21,6 +22,7 @@ const { presets, applyPreset } = useGradientPresets();
 
     <GradientEditor
       v-model="gradientSettings"
+      v-model:color-format="colorFormat"
       :presets="presets"
       @select-preset="applyPreset"
       @add-stop="addGradientStop"

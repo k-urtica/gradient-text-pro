@@ -20,6 +20,18 @@ export const ANGLE_SLIDER_CONFIG = {
 
 export const MAX_GRADIENT_STOPS = 8;
 
+export const COLOR_FORMATS = {
+  hex: 'hex',
+  oklch: 'oklch'
+} as const;
+
+export type ColorFormat = typeof COLOR_FORMATS[keyof typeof COLOR_FORMATS];
+
+export const COLOR_FORMAT_ITEMS = [
+  { label: 'Hex', value: COLOR_FORMATS.hex },
+  { label: 'OKLCH', value: COLOR_FORMATS.oklch }
+];
+
 export const GRADIENT_PRESETS: GradientPreset[] = [
   {
     id: 'ocean-depth',

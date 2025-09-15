@@ -18,7 +18,7 @@ export function useGradientPresets() {
 
   const getPresetPreviewStyle = (preset: GradientPreset) => {
     const { generateGradientCSS } = useGradient();
-    const gradientCSS = generateGradientCSS(preset.gradient);
+    const gradientCSS = generateGradientCSS(preset.gradient, COLOR_FORMATS.hex);
 
     return {
       background: gradientCSS,
