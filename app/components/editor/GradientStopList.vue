@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useScroll } from '@vueuse/core';
+
 const stops = defineModel<GradientStop[]>('stops', { required: true });
 
 const emits = defineEmits<{
@@ -8,14 +10,14 @@ const emits = defineEmits<{
 
 const reachedMaxStops = computed(() => stops.value.length >= MAX_GRADIENT_STOPS);
 
-const stopEls = useTemplateRef('stopEls');
+const stopList = useTemplateRef('stopList');
+const { y } = useScroll(stopList, { behavior: 'instant' });
 
 const handleAddStop = async () => {
   emits('addStop');
 
   await nextTick();
-  const last = stopEls.value?.at(-1);
-  last?.scrollIntoView({ behavior: 'smooth' });
+  y.value += stopList.value?.scrollHeight || 0;
 };
 </script>
 
@@ -30,10 +32,9 @@ const handleAddStop = async () => {
         class="tabular-nums"
       />
     </legend>
-    <ul class="max-h-72 snap-y space-y-2 overflow-y-scroll py-2">
+    <ul ref="stopList" class="max-h-72 snap-y space-y-2 overflow-y-scroll py-2">
       <li
         v-for="(stop, index) in stops"
-        ref="stopEls"
         :key="stop.id"
         :aria-label="`Gradient Stop ${index + 1}`"
         class="snap-start"
