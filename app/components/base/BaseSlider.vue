@@ -75,10 +75,12 @@ watch(model, (newValue) => {
       class="flex-1"
     >
       <template #label>
-        <span class="flex items-center gap-1">
-          <UIcon v-if="labelIcon" :name="labelIcon" />
-          <span>{{ label }}</span>
-        </span>
+        <slot v-if="label || !!$slots.label" name="label">
+          <span class="flex items-center gap-1">
+            <UIcon v-if="labelIcon" :name="labelIcon" />
+            <span>{{ label }}</span>
+          </span>
+        </slot>
       </template>
 
       <USlider
@@ -89,7 +91,7 @@ watch(model, (newValue) => {
         :size="size"
         :disabled="disabled"
       />
-      <template v-if="$slots.help" #help>
+      <template v-if="!!$slots.help" #help>
         <slot name="help" />
       </template>
     </UFormField>
