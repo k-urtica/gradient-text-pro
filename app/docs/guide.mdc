@@ -12,6 +12,7 @@ This is a unique gradient text design tool that perfectly balances visual appeal
 - 🎚️ **Advanced Gradient Control**: Easily customize gradient direction, color stops, and positions to create complex text effects.
 - 🎨 **Modern Color Format Support**: Choose between traditional HEX colors or modern OKLCH for smoother, more natural gradients.
 - 📝 **CSS Code Generation**: Copy the generated CSS with a single click and use it immediately in your projects.
+- 🖼️ **Image Export**: Export your gradient text as high-quality PNG, WebP, or SVG images with customizable scale options.
 - 🎨 **Preset Selection**: Choose from popular gradient text presets for quick results and efficient workflow.
 - 🔤 **Typography Customization**: Fine-tune font size, weight, letter spacing, and line height for perfect text rendering.
 - 🌗 **Dark/Light Theme Switching**: Change the UI to match your workspace or personal preference.
@@ -23,15 +24,19 @@ This is a unique gradient text design tool that perfectly balances visual appeal
 4. Choose between HEX (classic) or OKLCH (modern) color format for optimal gradient appearance.
 5. Fine-tune typography settings like font size, weight, letter spacing, and line height.
 6. Check the real-time preview and make adjustments as needed.
-7. Click the "Copy CSS Code" button to instantly get the generated code.
-8. Switch between dark and light themes to suit your environment.
+7. Click the "Copy CSS Code" button to instantly get the generated code, or export as image using the export controls.
+8. For image export, select your preferred format (PNG, WebP, SVG) and scale (1x, 1.5x, 2x, 3x), then click "Export as image".
+9. Switch between dark and light themes to suit your environment.
 
 #### Frequently Asked Questions (FAQ)
 ❓ **Q. What kind of websites can I use this for?**
 A. You can use gradient text for any text element—headlines, logos, buttons, navigation, banners, and more. It's especially effective for creating eye-catching titles and branding elements.
 
 💻 **Q. What format is the generated code?**
-A. The output is standard CSS with gradient properties, available in both traditional HEX format and modern OKLCH color space. OKLCH provides smoother, more natural gradients with better perceptual uniformity. The code includes all necessary properties for cross-browser compatibility.
+A. The output is standard CSS with gradient properties, available in both traditional HEX format and modern OKLCH color space. OKLCH provides smoother, more natural gradients with better perceptual uniformity. The code includes all necessary properties for cross-browser compatibility. You can also export your gradient text as high-quality images in PNG, WebP, or SVG formats.
+
+🖼️ **Q. What image formats are supported for export?**
+A. You can export your gradient text as PNG (best for general use), WebP (smaller file size with good quality), or SVG (vector format, scalable). Each format also supports multiple scale options (1x, 1.5x, 2x, 3x) for different display densities and use cases.
 
 🎨 **Q. What's the difference between HEX and OKLCH color formats?**
 A. HEX is the classic format that's widely supported and familiar to most developers. OKLCH is a modern color space that provides more natural gradient transitions, better color uniformity, and smoother blending. Choose HEX for maximum compatibility or OKLCH for the best visual results.
@@ -40,10 +45,10 @@ A. HEX is the classic format that's widely supported and familiar to most develo
 A. Yes! It's fully responsive, so you can use it comfortably on PC, smartphone, or tablet.
 
 🆚 **Q. How is this different from other gradient text generators?**
-A. Gradient Text Pro offers advanced customization with multiple color stops, precise angle control, comprehensive typography settings, modern OKLCH color space support, preset selection, real-time preview, and theme switching—features chosen for real-world usability. Its ease of use, design flexibility, and cutting-edge color technology set it apart.
+A. Gradient Text Pro offers advanced customization with multiple color stops, precise angle control, comprehensive typography settings, modern OKLCH color space support, preset selection, high-quality image export in multiple formats, real-time preview, and theme switching—features chosen for real-world usability. Its ease of use, design flexibility, cutting-edge color technology, and versatile export options set it apart.
 
 ---
-Gradient Text Pro is trusted by many users searching for "CSS gradient text," "gradient text generator," "web design tool," "text gradient CSS," and "typography design." Try it in your next project!
+Gradient Text Pro is trusted by many users searching for "CSS gradient text," "gradient text generator," "web design tool," "text gradient CSS," "gradient text image export," and "typography design." Try it in your next project!
 
 Gradient Text Pro is developed and released as OSS (Open Source Software).
 See the GitHub repository for details: [GitHub - gradient-text-pro](https://github.com/k-urtica/gradient-text-pro)
