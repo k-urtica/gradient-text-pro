@@ -56,7 +56,7 @@ const buttonProps = computed<ButtonProps>(() => {
       class="flex min-h-0 flex-1 flex-col rounded-lg border bg-elevated"
     >
       <pre
-        class="size-full overflow-auto p-4 font-mono text-sm whitespace-pre"
+        class="size-full overflow-auto px-3 py-4 font-mono text-sm whitespace-pre"
         aria-label="Generated code"
       ><code>{{ code }}</code></pre>
     </div>

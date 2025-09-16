@@ -28,12 +28,13 @@ const handlePresetClick = (preset: GradientPreset) => {
 
     <div class="overflow-hidden rounded-lg border border-default">
       <ul
-        class="grid max-h-36 grid-cols-3 gap-2 overflow-auto p-2 pr-1.5"
+        class="grid max-h-36 snap-y scroll-pt-2 grid-cols-3 gap-2 overflow-auto p-2 pr-1.5"
         aria-label="Gradient presets"
       >
         <li
           v-for="preset in presets"
           :key="preset.id"
+          class="snap-start"
         >
           <UButton
             variant="soft"
@@ -44,7 +45,7 @@ const handlePresetClick = (preset: GradientPreset) => {
           >
             <div
               class="size-4 text-xs font-bold"
-              :style="getPresetPreviewStyle(preset)"
+              :style="{ ...getPresetPreviewStyle(preset) }"
             >
               Aa
             </div>

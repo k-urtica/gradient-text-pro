@@ -20,12 +20,15 @@ defineEmits<{
     <div class="flex-1">
       <BaseSlider
         v-model="stop.position"
-        :label="`Stop ${displayIndex} Position`"
         unit="%"
         :min="0"
         :max="100"
         :step="1"
-      />
+      >
+        <template #label>
+          <span class="text-xs">{{ `Stop ${displayIndex} Position` }}</span>
+        </template>
+      </BaseSlider>
     </div>
 
     <UTooltip text="Remove Stop" arrow>

@@ -20,7 +20,7 @@ const handleAddStop = async () => {
 </script>
 
 <template>
-  <fieldset class="max-h-60 overflow-y-scroll">
+  <fieldset>
     <legend class="mb-1 flex w-full items-center justify-between gap-2 text-sm font-medium">
       Gradient Stops
       <UBadge
@@ -30,12 +30,13 @@ const handleAddStop = async () => {
         class="tabular-nums"
       />
     </legend>
-    <ul class="space-y-2 pb-2">
+    <ul class="max-h-72 snap-y space-y-2 overflow-y-scroll py-2">
       <li
         v-for="(stop, index) in stops"
         ref="stopEls"
         :key="stop.id"
         :aria-label="`Gradient Stop ${index + 1}`"
+        class="snap-start"
       >
         <GradientStopListItem
           :model-value="stop"
