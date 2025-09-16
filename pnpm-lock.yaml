@@ -27,7 +27,7 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       modern-screenshot:
-        specifier: ^4.6.6
+        specifier: 4.6.6
         version: 4.6.6
       motion-v:
         specifier: 1.7.1
