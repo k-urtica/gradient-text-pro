@@ -9,6 +9,8 @@ const emit = defineEmits<{
   selectPreset: [preset: GradientPreset];
 }>();
 
+const showSwatch = ref(false);
+
 const { getPresetPreviewStyle } = useGradientPresets();
 
 const handlePresetClick = (preset: GradientPreset) => {
@@ -18,13 +20,27 @@ const handlePresetClick = (preset: GradientPreset) => {
 
 <template>
   <div>
-    <BaseIconText
-      as="h4"
-      icon="i-lucide-sparkles"
-      class="mb-2 text-sm"
-    >
-      Presets
-    </BaseIconText>
+    <div class="mb-2 flex items-center justify-between">
+      <BaseIconText
+        as="h4"
+        icon="i-lucide-sparkles"
+        class="text-sm"
+      >
+        Presets
+      </BaseIconText>
+
+      <UTooltip text="Toggle preset preview: text or swatch" arrow>
+        <span>
+          <USwitch
+            v-model="showSwatch"
+            checked-icon="i-lucide-swatch-book"
+            unchecked-icon="i-lucide-type"
+            size="xs"
+            aria-label="Toggle preset preview: text or swatch"
+          />
+        </span>
+      </UTooltip>
+    </div>
 
     <div class="overflow-hidden rounded-lg border border-default">
       <ul
@@ -39,13 +55,15 @@ const handlePresetClick = (preset: GradientPreset) => {
           <UButton
             variant="soft"
             size="sm"
-            class="flex size-full flex-col gap-1.5 ring-1 ring-muted/70"
+            class="flex size-full h-16 flex-col gap-1.5 ring-1 ring-muted/70"
             :aria-label="`Apply preset: ${preset.label}`"
             @click="handlePresetClick(preset)"
           >
             <div
-              class="size-4 text-xs font-bold"
-              :style="{ ...getPresetPreviewStyle(preset) }"
+              aria-hidden="true"
+              class="text-xs font-bold"
+              :class="[showSwatch ? 'h-4 w-full rounded-sm' : 'size-4']"
+              :style="{ ...getPresetPreviewStyle(preset), ...(showSwatch ? NO_TEXT_CLIP : {}) }"
             >
               Aa
             </div>
