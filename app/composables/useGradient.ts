@@ -6,14 +6,13 @@ export interface GradientStop {
   /** Position of the gradient stop (0-100) */
   position: number;
 }
-export interface GradientSettings {
-  /** Type of gradient: linear, radial, or conic */
-  type: GradientType;
-  /** Angle of the gradient (for linear and conic gradients) */
-  angle: number;
-  /** Gradient stops */
-  stops: GradientStop[];
-}
+
+/**
+ * Gradient settings.
+ */
+export type GradientSettings =
+  | { type: Extract<GradientType, 'radial'>; angle?: number; stops: GradientStop[] } |
+  { type: Extract<GradientType, 'linear' | 'conic'>; angle: number; stops: GradientStop[] };
 
 export interface FontSettings {
   /** Font size */
@@ -91,8 +90,6 @@ export function useGradient() {
         return `radial-gradient(circle, ${stopsString})`;
       case GRADIENT_TYPES.conic:
         return `conic-gradient(from ${settings.angle}deg, ${stopsString})`;
-      default:
-        return `linear-gradient(${settings.angle}deg, ${stopsString})`;
     }
   };
 
