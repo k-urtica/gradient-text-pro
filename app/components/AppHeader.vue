@@ -4,13 +4,12 @@
       class="flex h-full items-center rounded-t-none border-t-0 px-4"
     >
       <NuxtLink to="/" class="flex items-center gap-2">
-        <!-- <img
+        <img
           src="/logo.webp"
           width="24"
           height="24"
           aria-hidden="true"
-          class="size-6"
-        > -->
+        >
         <h1
           class="text-base leading-tight font-black tracking-tight lg:text-lg"
         >
