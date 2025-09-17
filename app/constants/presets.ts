@@ -58,7 +58,6 @@ export const GRADIENT_PRESETS: GradientPreset[] = [
     label: 'Golden Hour',
     gradient: {
       type: 'radial',
-      angle: 0,
       stops: [
         { id: 'stop1', color: '#fef3c7', position: 0 },
         { id: 'stop2', color: '#fbbf24', position: 50 },
@@ -154,12 +153,52 @@ export const GRADIENT_PRESETS: GradientPreset[] = [
     label: 'Ice Crystal',
     gradient: {
       type: 'radial',
-      angle: 0,
       stops: [
         { id: 'stop1', color: '#f0f9ff', position: 0 },
         { id: 'stop2', color: '#e0f2fe', position: 30 },
         { id: 'stop3', color: '#0ea5e9', position: 70 },
         { id: 'stop4', color: '#0369a1', position: 100 }
+      ]
+    }
+  },
+  {
+    id: 'solar-flare',
+    label: 'Solar Flare',
+    gradient: {
+      type: 'radial',
+      stops: [
+        { id: 'stop1', color: '#fef3c7', position: 0 },
+        { id: 'stop2', color: '#f59e0b', position: 40 },
+        { id: 'stop3', color: '#ea580c', position: 70 },
+        { id: 'stop4', color: '#dc2626', position: 100 }
+      ]
+    }
+  },
+  {
+    id: 'galaxy-spiral',
+    label: 'Galaxy Spiral',
+    gradient: {
+      type: 'conic',
+      angle: 90,
+      stops: [
+        { id: 'stop1', color: '#1e1b4b', position: 0 },
+        { id: 'stop2', color: '#6366f1', position: 25 },
+        { id: 'stop3', color: '#8b5cf6', position: 50 },
+        { id: 'stop4', color: '#ec4899', position: 75 },
+        { id: 'stop5', color: '#1e1b4b', position: 100 }
+      ]
+    }
+  },
+  {
+    id: 'forest-mist',
+    label: 'Forest Mist',
+    gradient: {
+      type: 'radial',
+      stops: [
+        { id: 'stop1', color: '#d1fae5', position: 0 },
+        { id: 'stop2', color: '#6ee7b7', position: 30 },
+        { id: 'stop3', color: '#10b981', position: 70 },
+        { id: 'stop4', color: '#064e3b', position: 100 }
       ]
     }
   }
