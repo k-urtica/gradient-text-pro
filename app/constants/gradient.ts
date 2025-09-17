@@ -31,3 +31,9 @@ export const COLOR_FORMAT_ITEMS = [
   { label: 'Hex', value: COLOR_FORMATS.hex },
   { label: 'OKLCH', value: COLOR_FORMATS.oklch }
 ];
+
+/** No text clipping styles */
+export const NO_TEXT_CLIP = {
+  backgroundClip: undefined,
+  WebkitBackgroundClip: undefined,
+} as const;

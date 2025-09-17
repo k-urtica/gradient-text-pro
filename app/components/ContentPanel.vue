@@ -1,16 +1,11 @@
 <script setup lang="ts">
 const { text, textStyle, cssOutput } = useGradient();
 
-const DISABLED_CLIP = {
-  backgroundClip: undefined,
-  WebkitBackgroundClip: undefined,
-} as const;
-
 const previewTextEl = useTemplateRef('previewText');
 const showFullGradient = ref(false);
 
 const previewTextStyle = computed(() => showFullGradient.value
-  ? { ...textStyle.value, ...DISABLED_CLIP }
+  ? { ...textStyle.value, ...NO_TEXT_CLIP }
   : textStyle.value);
 </script>
 
