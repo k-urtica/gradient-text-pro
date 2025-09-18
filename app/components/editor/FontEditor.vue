@@ -22,8 +22,8 @@ const fontToggles = defineModel<FontToggles>('fontToggles', { required: true });
         unit="px"
       />
 
-      <div class="grid grid-cols-2 gap-2">
-        <UFormField label="Font Weight">
+      <div class="grid grid-cols-5 gap-2">
+        <UFormField label="Font Weight" class="col-span-2">
           <USelect
             v-model="fontSettings.weight"
             :items="FONT_WEIGHT_ITEMS"
@@ -32,13 +32,17 @@ const fontToggles = defineModel<FontToggles>('fontToggles', { required: true });
           />
         </UFormField>
 
-        <UFormField label="Font Family">
+        <UFormField label="Font Family" class="col-span-3">
           <USelect
             v-model="fontSettings.family"
             :items="FONT_FAMILY_ITEMS"
             size="sm"
             class="w-full"
-          />
+          >
+            <template #item-label="{ item }">
+              <span :style="{ fontFamily: item.value }">{{ item.label }}</span>
+            </template>
+          </USelect>
         </UFormField>
       </div>
 

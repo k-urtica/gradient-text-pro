@@ -20,7 +20,7 @@ export interface FontSettings {
   /** Font weight */
   weight: FontWeight;
   /** Font family */
-  family: string;
+  family: FontFamily;
   /** Letter spacing */
   letterSpacing: number;
   /** Line height */
@@ -61,8 +61,8 @@ export function useGradient() {
 
   const fontSettings = useState<FontSettings>('font-settings', () => ({
     size: 64,
-    weight: FONT_WEIGHTS.bold,
-    family: 'Inter, system-ui, sans-serif',
+    weight: FONT_WEIGHTS.bold.value,
+    family: FONT_FAMILIES.inter.value,
     letterSpacing: -0.02,
     lineHeight: 1.2
   }));
