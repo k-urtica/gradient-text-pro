@@ -86,6 +86,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
   nitro: {
+    routeRules: {
+      '*.webp': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    },
     preset: 'cloudflare-module',
     prerender: {
       autoSubfolderIndex: false,
