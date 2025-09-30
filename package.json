@@ -12,7 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/ui": "3.3.3",
+    "@nuxt/ui": "4.0.0",
     "@nuxtjs/mdc": "0.17.4",
     "@nuxtjs/seo": "3.2.2",
     "@vueuse/core": "13.9.0",
