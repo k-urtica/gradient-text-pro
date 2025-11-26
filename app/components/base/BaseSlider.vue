@@ -14,58 +14,13 @@ export interface BaseSliderProps {
 
 const model = defineModel<number>({ default: 0 });
 
-const props = withDefaults(defineProps<BaseSliderProps>(), {
+withDefaults(defineProps<BaseSliderProps>(), {
   min: 0,
   max: 100,
   step: 1,
   unit: '',
   size: 'xs'
 });
-
-const inputValue = ref<string>('');
-const isInputFocused = ref(false);
-
-const parseAndClampInput = (inputStr: string): number | undefined => {
-  if (!inputStr) return undefined;
-
-  const numValue = Number(inputStr);
-  if (Number.isNaN(numValue)) return undefined;
-
-  return Math.max(props.min, Math.min(props.max, numValue));
-};
-
-const handleInputChange = () => {
-  const clampedValue = parseAndClampInput(inputValue.value);
-
-  if (clampedValue === undefined) return;
-
-  model.value = clampedValue;
-};
-
-const handleInputBlur = () => {
-  isInputFocused.value = false;
-  const clampedValue = parseAndClampInput(inputValue.value);
-
-  if (clampedValue === undefined) {
-    // display the last valid model value if input is invalid
-    inputValue.value = String(model.value);
-    return;
-  }
-  // Clamp the value to ensure it stays within the defined range
-  model.value = clampedValue;
-  inputValue.value = String(clampedValue);
-};
-
-const handleInputFocus = () => {
-  isInputFocused.value = true;
-};
-
-watch(model, (newValue) => {
-  // UX improvement: update input value only if input is not focused
-  if (!isInputFocused.value) {
-    inputValue.value = String(newValue);
-  }
-}, { immediate: true });
 </script>
 
 <template>
@@ -97,22 +52,18 @@ watch(model, (newValue) => {
     </UFormField>
 
     <div class="mt-2.5 self-start">
-      <UInput
-        v-model="inputValue"
-        variant="soft"
+      <UInputNumber
+        v-model="model"
         size="xs"
-        inputmode="numeric"
-        :disabled="disabled"
-        :class="[unit ? 'w-16' : 'w-14']"
-        :ui="{ base: 'ring-1 ring-default/40' }"
-        @focus="handleInputFocus"
-        @input="handleInputChange"
-        @blur="handleInputBlur"
-      >
-        <template v-if="unit" #trailing>
-          <span class="text-xs text-muted">{{ unit }}</span>
-        </template>
-      </UInput>
+        :min="min"
+        :max="max"
+        :step="step"
+        :decrement="false"
+        :increment="false"
+        variant="soft"
+        class="w-14"
+      />
+      <span class="ms-0.5 text-xs text-muted">{{ unit }}</span>
     </div>
   </div>
 </template>
