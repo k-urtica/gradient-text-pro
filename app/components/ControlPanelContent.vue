@@ -15,7 +15,7 @@ const { presets, applyPreset } = useGradientPresets();
 </script>
 
 <template>
-  <div class="space-y-5">
+  <div class="space-y-5 px-4 py-6">
     <TextEditor v-model="text" />
 
     <USeparator />
