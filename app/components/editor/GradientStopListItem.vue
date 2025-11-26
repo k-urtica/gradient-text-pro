@@ -35,7 +35,7 @@ defineEmits<{
       <UButton
         icon="i-lucide-trash-2"
         size="xs"
-        variant="ghost"
+        variant="link"
         color="neutral"
         :disabled="!removeable"
         aria-label="Remove Stop"
