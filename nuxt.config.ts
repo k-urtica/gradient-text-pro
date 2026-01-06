@@ -81,6 +81,9 @@ export default defineNuxtConfig({
         color: 'neutral',
       },
     },
+    experimental: {
+      componentDetection: true,
+    }
   },
 
   compatibilityDate: '2025-07-15',
@@ -144,6 +147,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
+    zeroRuntime: true,
     autoLastmod: false,
     discoverImages: false,
     sitemaps: false,
