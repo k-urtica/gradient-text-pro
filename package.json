@@ -12,34 +12,34 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/ui": "4.2.1",
-    "@nuxtjs/mdc": "0.18.4",
-    "@nuxtjs/seo": "3.2.2",
-    "@vueuse/core": "13.9.0",
-    "@vueuse/nuxt": "13.9.0",
+    "@nuxt/ui": "4.3.0",
+    "@nuxtjs/mdc": "0.19.2",
+    "@nuxtjs/seo": "3.3.0",
+    "@vueuse/core": "14.1.0",
+    "@vueuse/nuxt": "14.1.0",
     "culori": "4.0.2",
     "modern-screenshot": "4.6.7",
-    "motion-v": "1.7.4",
-    "nuxt": "4.2.1",
+    "motion-v": "1.7.5",
+    "nuxt": "4.2.2",
     "remark-breaks": "4.0.0",
-    "vue": "3.5.25",
-    "vue-router": "4.6.3"
+    "vue": "3.5.26",
+    "vue-router": "4.6.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "6.2.0",
+    "@antfu/eslint-config": "6.7.3",
     "@iconify/icons-lucide": "1.2.135",
-    "@nuxt/eslint": "1.10.0",
-    "@nuxt/scripts": "0.13.0",
+    "@nuxt/eslint": "1.12.1",
+    "@nuxt/scripts": "0.13.2",
     "@types/culori": "4.0.1",
     "clsx": "2.1.1",
-    "eslint": "9.39.1",
-    "eslint-plugin-better-tailwindcss": "3.7.11",
-    "eslint-plugin-format": "1.0.2",
+    "eslint": "9.39.2",
+    "eslint-plugin-better-tailwindcss": "3.8.0",
+    "eslint-plugin-format": "1.2.0",
     "lint-staged": "16.2.7",
     "simple-git-hooks": "2.13.1",
     "tailwind-merge": "3.4.0",
     "typescript": "5.9.3",
-    "wrangler": "4.50.0"
+    "wrangler": "4.54.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
