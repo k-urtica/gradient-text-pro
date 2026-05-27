@@ -20,6 +20,7 @@ export default defineNuxtConfig({
         googleAdsense: {
           client: 'ca-pub-6155745382628091',
           autoAds: true,
+          trigger: 'onNuxtReady',
           scriptInput: {
             defer: true,
           },
